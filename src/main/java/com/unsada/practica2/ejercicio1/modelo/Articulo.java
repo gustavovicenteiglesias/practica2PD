@@ -21,7 +21,7 @@ public class Articulo implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Basic(optional = false)
     @Column(name = "id_articulo")
-    private Integer idArticulo;
+    private Long idArticulo;
    
     @Column(name = "nombre")
     private String nombre;
@@ -47,26 +47,22 @@ public class Articulo implements Serializable {
 	}
 
 
-	public Articulo(Integer idArticulo, String nombre, Float cuit, String descripcion,
-			Collection<Fventas> fventasCollection, Collection<Proveedor> proveedorCollection,
-			Collection<Fcompras> fcomprasCollection) {
+	public Articulo( String nombre, Float cuit, String descripcion) {
 		super();
-		this.idArticulo = idArticulo;
+		
 		this.nombre = nombre;
 		this.cuit = cuit;
 		this.descripcion = descripcion;
-		this.fventasCollection = fventasCollection;
-		this.proveedorCollection = proveedorCollection;
-		this.fcomprasCollection = fcomprasCollection;
+		
 	}
 
 
-	public Integer getIdArticulo() {
+	public Long getIdArticulo() {
 		return idArticulo;
 	}
 
 
-	public void setIdArticulo(Integer idArticulo) {
+	public void setIdArticulo(Long idArticulo) {
 		this.idArticulo = idArticulo;
 	}
 
@@ -161,8 +157,7 @@ public class Articulo implements Serializable {
 	@Override
 	public String toString() {
 		return "Articulo [idArticulo=" + idArticulo + ", nombre=" + nombre + ", cuit=" + cuit + ", descripcion="
-				+ descripcion + ", fventasCollection=" + fventasCollection + ", proveedorCollection="
-				+ proveedorCollection + ", fcomprasCollection=" + fcomprasCollection + "]";
+				+ descripcion + "]";
 	}
     
     

@@ -20,7 +20,7 @@ public class Fcompras implements Serializable {
 	    @GeneratedValue(strategy = GenerationType.AUTO)
 	    @Basic(optional = false)
 	    @Column(name = "id_fcompras")
-	    private Integer idFcompras;
+	    private Long idFcompras;
 	    
 	    @Column(name = "cantidad")
 	    private Integer cantidad;
@@ -49,10 +49,10 @@ public class Fcompras implements Serializable {
 			super();
 		}
 
-		public Fcompras(Integer idFcompras, Integer cantidad, Float importe, Double subtotal, Double total, Double iva,
+		public Fcompras( Integer cantidad, Float importe, Double subtotal, Double total, Double iva,
 				Articulo idArticulo, Proveedor idProveedor) {
 			super();
-			this.idFcompras = idFcompras;
+			
 			this.cantidad = cantidad;
 			this.importe = importe;
 			this.subtotal = subtotal;
@@ -62,11 +62,11 @@ public class Fcompras implements Serializable {
 			this.idProveedor = idProveedor;
 		}
 
-		public Integer getIdFcompras() {
+		public Long getIdFcompras() {
 			return idFcompras;
 		}
 
-		public void setIdFcompras(Integer idFcompras) {
+		public void setIdFcompras(Long idFcompras) {
 			this.idFcompras = idFcompras;
 		}
 

@@ -20,7 +20,7 @@ public class Proveedor implements Serializable{
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Basic(optional = false)
     @Column(name = "id_proveedor")
-    private Integer idProveedor;
+    private Long idProveedor;
    
     @Column(name = "nombre")
     private String nombre;
@@ -36,23 +36,7 @@ public class Proveedor implements Serializable{
     @Column(name = "email")
     private String email;
    
-    public Proveedor(Integer idProveedor, String nombre, Long cuit, String contacto, Integer telefono, String email,
-			String calle, Integer numero, String localidad, String provincia, Collection<Articulo> articuloCollection,
-			Collection<Fcompras> fcomprasCollection) {
-		super();
-		this.idProveedor = idProveedor;
-		this.nombre = nombre;
-		this.cuit = cuit;
-		this.contacto = contacto;
-		this.telefono = telefono;
-		this.email = email;
-		this.calle = calle;
-		this.numero = numero;
-		this.localidad = localidad;
-		this.provincia = provincia;
-		this.articuloCollection = articuloCollection;
-		this.fcomprasCollection = fcomprasCollection;
-	}
+  
 
 	@Column(name = "calle")
     private String calle;
@@ -75,12 +59,30 @@ public class Proveedor implements Serializable{
 	public Proveedor() {
 		super();
 	}
+	
+	  public Proveedor( String nombre, Long cuit, String contacto, Integer telefono, String email,
+				String calle, Integer numero, String localidad, String provincia, Collection<Articulo> articuloCollection,
+				Collection<Fcompras> fcomprasCollection) {
+			super();
+			
+			this.nombre = nombre;
+			this.cuit = cuit;
+			this.contacto = contacto;
+			this.telefono = telefono;
+			this.email = email;
+			this.calle = calle;
+			this.numero = numero;
+			this.localidad = localidad;
+			this.provincia = provincia;
+			this.articuloCollection = articuloCollection;
+			this.fcomprasCollection = fcomprasCollection;
+		}
 
-	public Integer getIdProveedor() {
+	public Long getIdProveedor() {
 		return idProveedor;
 	}
 
-	public void setIdProveedor(Integer idProveedor) {
+	public void setIdProveedor(Long idProveedor) {
 		this.idProveedor = idProveedor;
 	}
 
