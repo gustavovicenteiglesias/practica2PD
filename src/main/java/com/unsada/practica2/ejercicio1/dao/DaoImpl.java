@@ -6,7 +6,7 @@ import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import com.unsada.practica2.ejercicio1.modelo.Cliente;
+
 import com.unsada.practica2.ejercicio1.util.Configuracion;
 
 public class DaoImpl<T> implements Dao<Object>  {
@@ -38,6 +38,7 @@ public class DaoImpl<T> implements Dao<Object>  {
 	}
 
 	
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Object> getAll(String clase) {
 		Transaction transaction = null;
@@ -63,6 +64,7 @@ public class DaoImpl<T> implements Dao<Object>  {
 	@Override
 	public void delete(Long id,Object clase) {
 		Transaction transaction = null;
+		@SuppressWarnings("unchecked")
 		Class<T> cla=(Class<T>) clase;
         Object t = null;
         try (Session session = Configuracion.getSessionFactory().openSession()) {
@@ -89,7 +91,8 @@ public class DaoImpl<T> implements Dao<Object>  {
 		 Transaction transaction = null;
 		 
 		 
-	       Class<T> cla=(Class<T>) clase;
+	       @SuppressWarnings("unchecked")
+		Class<T> cla=(Class<T>) clase;
 			Object t=null;
 			try (Session session = Configuracion.getSessionFactory().openSession()) {
 	            // start the transaction
